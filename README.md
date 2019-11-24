@@ -6,10 +6,6 @@ HEADHunter is a command line tool for downloading ethereum-like blockchains into
 hhunt <global-flags> command <command-flags>
 ```
 
-## Commands: 
-- **Gather**: downloads specified the blocks
-- **Subscribe**: listens for and downloads the latests blocks
-
 The best way to get started with HEADHunter is to run `hhunt --help`
 
 ## Quick start:
@@ -18,11 +14,49 @@ To fully download the current blockchain and listen for new blocks:
 hhunt --rpc <url> --db <url> subscribe --connect --sync
 ```
 
-## Global flags
-| Flag    | Type   | Usage text                | Description                                                                                         |
-|---------|--------|---------------------------|-----------------------------------------------------------------------------------------------------|
-| `--rpc` | string | url of Ethereum nodes RPC | REQUIRED. e.g. To connect to a geth rpc running on the local machine: `--rpc http://localhost:8545` |
-| `--db`  | string | url of MongoDB instance   | REQUIRED. e.g. To connect to local MongoDB instance: `--db localhost:27017`                         |
+# GLOBAL OPTIONS
+
+**--db**="": url of running MongoDB instance
+
+**--help, -h**: show help
+
+**--rpc**="": rpc url of blockchain ethereum-like rpc-client
+
+**--version, -v**: print the version
+
+
+# COMMANDS
+
+## gather
+
+gather downloads specified the blocks
+
+**--connect**: connects target to known ancestor, by downloading the missing blocks
+
+**--hash**="": target block via hash
+
+**--number**="": target block by number (index) (default: 0)
+
+**--silent**: silences all logs
+
+**--sync**: gather missing blocks
+
+**--verbose**: show all log outputs when synchronizing
+
+## subscribe
+
+subscribe listens for and downloads the latests blocks
+
+**--connect**: connects HEAD to a known ancestor, by downloading the missing blocks, should be true if delay is greater than average block time
+
+**--delay**="": delay in seconds between requests for latest block (default: 30)
+
+**--silent**: silences all logs
+
+**--sync**: ensures you gather missing blocks
+
+**--verbose**: show all log outputs
+
 
 
 ## Examples
