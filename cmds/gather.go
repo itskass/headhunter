@@ -2,6 +2,9 @@ package cmds
 
 import (
 	"io/ioutil"
+	"log"
+	"strconv"
+	"strings"
 
 	"github.com/globalsign/mgo/bson"
 	"github.com/itskass/headhunter/gather"
@@ -11,11 +14,15 @@ import (
 
 var Gather = cli.Command{
 	Name:  "gather",
-	Usage: "gather downloads specified the blocks",
+	Usage: "gather downloads specified the blocks. If no blocks are specified the latest block is used as a target",
 	Flags: []cli.Flag{
 		&cli.Uint64Flag{
 			Name:  "number",
 			Usage: "target block by number (index)",
+		},
+		&cli.StringFlag{
+			Name:  "range",
+			Usage: "target blocks in the given range <start:end>",
 		},
 		&cli.StringFlag{
 			Name:  "hash",
@@ -72,7 +79,30 @@ func _gather(c *cli.Context) error {
 		opts.Target = bson.M{"latest": "true"}
 	}
 
-	// run
+	// run range
+	if c.IsSet("range") {
+		log.Println("downloading range:")
+		start, end := parseRange(c.String("range"))
+		for i := start; i < end; i++ {
+			opts.Target = bson.M{"number": uint64(i)}
+			opts.GetAncestors = false      // cant get ancestors for range
+			opts.ShouldSynchronize = false // cant synchronize for rane
+			gather.Blocks(opts)
+		}
+		return nil
+	}
+
+	// run default
 	gather.Blocks(opts)
 	return nil
+}
+
+func parseRange(str string) (int, int) {
+	s := strings.Split(str, ":")
+	if len(s) != 2 {
+		log.Fatal("bad range:", str)
+	}
+	start, _ := strconv.Atoi(s[0])
+	end, _ := strconv.Atoi(s[1])
+	return start, end
 }

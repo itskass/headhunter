@@ -62,8 +62,17 @@ func Blocks(opts *Options) {
 	// or request by number via rpc
 	if _number, ok := target["number"]; ok {
 		number := _number.(uint64)
-		Log.Println("rpc request block by number", number)
+		Log.Println("rpc: request block by number", number)
 		if blockData, err = blockByNumber(number, c); err != nil {
+			log.Println("rpc: err", err)
+			return
+		}
+	}
+
+	if _, ok := target["latest"]; ok {
+		Log.Println("rpc: request latest block")
+		blockData, err = c.BlockByNumber(context.Background(), nil)
+		if err != nil {
 			log.Println("rpc: err", err)
 			return
 		}
