@@ -3,10 +3,8 @@
 HEADHunter is a command line tool for downloading ethereum-like blockchains into MongoDB using the JSON RPC. HEADHunter can listen for new blocks and implements basic synchronization. Suitable for the Ethereum Mainnet as well as private Ethereum networks.
 
 ## Commands: 
-- **Gather**:<br>
-    downloads specified the blocks
-- **Subscribe**:<br>
-    listens for and downloads the latests blocks
+- **Gather**: downloads specified the blocks
+- **Subscribe**: listens for and downloads the latests blocks
 
 The best way to get started with HEADHunter is to run `hhunt --help`
 
