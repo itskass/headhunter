@@ -2,6 +2,10 @@
 
 HEADHunter is a command line tool for downloading ethereum-like blockchains into MongoDB using the JSON RPC. HEADHunter can listen for new blocks and implements basic synchronization. Suitable for the Ethereum Mainnet as well as private Ethereum networks.
 
+```
+hhunt <global-flags> command <command-flags>
+```
+
 ## Commands: 
 - **Gather**: downloads specified the blocks
 - **Subscribe**: listens for and downloads the latests blocks
@@ -13,6 +17,13 @@ To fully download the current blockchain and listen for new blocks:
 ```
 hhunt --rpc <url> --db <url> subscribe --connect --sync
 ```
+
+## Global flags
+| Flag    | Type   | Usage text                | Description                                                                                         |
+|---------|--------|---------------------------|-----------------------------------------------------------------------------------------------------|
+| `--rpc` | string | url of Ethereum nodes RPC | REQUIRED. e.g. To connect to a geth rpc running on the local machine: `--rpc http://localhost:8545` |
+| `--db`  | string | url of MongoDB instance   | REQUIRED. e.g. To connect to local MongoDB instance: `--db localhost:27017`                         |
+
 
 ## Examples
 - **Gather specific Block By Number**: <br>
