@@ -58,8 +58,7 @@ subscribe listens for and downloads the latests blocks
 **--verbose**: show all log outputs
 
 
-
-## Examples
+# Examples
 - **Gather specific Block By Number**: <br>
     Gets only block number 50 and store it in your database:
     ```shell
