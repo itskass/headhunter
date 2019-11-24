@@ -45,6 +45,7 @@ func main() {
 	app.Commands = []cli.Command{
 		cmds.Gather,
 		cmds.Subscribe,
+		cmds.Docs,
 	}
 
 	// run application
