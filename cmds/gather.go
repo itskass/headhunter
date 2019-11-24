@@ -11,7 +11,7 @@ import (
 
 var Gather = cli.Command{
 	Name:  "gather",
-	Usage: "gather downloads specified the latests blocks",
+	Usage: "gather downloads specified the blocks",
 	Flags: []cli.Flag{
 		&cli.Uint64Flag{
 			Name:  "number",
