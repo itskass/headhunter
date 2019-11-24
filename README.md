@@ -16,7 +16,7 @@ To fully download the current blockchain and listen for new blocks:
 hhunt --rpc <url> --db <url> subscribe --connect --sync
 ```
 
-# GLOBAL OPTIONS
+## Global options
 
 **--db**="": url of running MongoDB instance
 
@@ -27,7 +27,7 @@ hhunt --rpc <url> --db <url> subscribe --connect --sync
 **--version, -v**: print the version
 
 
-# COMMANDS
+# Commands
 
 ## gather
 
@@ -60,7 +60,7 @@ subscribe listens for and downloads the latests blocks
 **--verbose**: show all log outputs
 
 
-# Examples
+## Examples
 - **Gather specific Block By Number**: <br>
     Gets only block number 50 and store it in your database:
     ```shell
@@ -92,4 +92,3 @@ subscribe listens for and downloads the latests blocks
     but you can change the time by setting the `--delay` flag.
 
     Add the `--sync` command to also download all missing blocks.
-
