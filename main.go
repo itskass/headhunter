@@ -36,7 +36,7 @@ func main() {
 		},
 		&cli.StringFlag{
 			Name:     "rpc",
-			Usage:    "rpc url of blockchain ethereum-like rpc-client",
+			Usage:    "url of blockchain ethereum rpc",
 			Required: true,
 		},
 	}
