@@ -30,9 +30,9 @@ func main() {
 	// global flags
 	app.Flags = []cli.Flag{
 		&cli.StringFlag{
-			Name:     "db",
-			Usage:    "url of running MongoDB instance",
-			Required: true,
+			Name:  "db",
+			Usage: "url of running MongoDB instance",
+			Value: "localhost:27017",
 		},
 		&cli.StringFlag{
 			Name:     "rpc",
