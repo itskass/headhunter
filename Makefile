@@ -1,8 +1,8 @@
 # installs HEADHunter on the local machine as
-# hhunt
+# headhunter
 .phony: install
 install:
-	go build -i -o hhunt .
+	go build -i -o headhunter .
 
 # builds cross platform distributions for windows and 
 # linux. mac build not working, run `make _mac` on a 
@@ -18,13 +18,13 @@ builds:
 _linux: 
 	go get -d -v ./...
 	go get -d github.com/btcsuite/btcd/btcec 
-	go build -o dist/hhunt_linux .
+	go build -o dist/headhunter_linux .
 
 .phony: _windows
 _windows:
 	go get -d github.com/pkg/errors gopkg.in/natefinch/npipe.v2
-	env GOOS=windows GOARCH=386 go build -o dist/hhunt_windows.exe .
+	env GOOS=windows GOARCH=386 go build -o dist/headhunter_windows.exe .
 
 .phony: _mac
 _mac:
-	nv GOOS=darwin GOARCH=amd64 go build -o dist/hhunt_mac .
+	nv GOOS=darwin GOARCH=amd64 go build -o dist/headhunter_mac .
