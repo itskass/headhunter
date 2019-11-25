@@ -6,10 +6,11 @@ import (
 	"strconv"
 	"strings"
 
+	"github.com/urfave/cli"
+
 	"github.com/globalsign/mgo/bson"
 	"github.com/itskass/headhunter/gather"
 	"github.com/itskass/headhunter/helpers"
-	"github.com/urfave/cli"
 )
 
 var Gather = cli.Command{
@@ -64,8 +65,8 @@ func _gather(c *cli.Context) error {
 
 	// create gather options
 	opts := &gather.Options{
-		DB:                helpers.DB(c.GlobalString("db")),
-		Client:            helpers.Client(c.GlobalString("rpc")),
+		DB:                helpers.DB(c.String("db")),
+		Client:            helpers.Client(c.String("rpc")),
 		GetAncestors:      c.Bool("connect"),
 		ShouldSynchronize: c.Bool("sync"),
 	}

@@ -58,8 +58,8 @@ func _subscribe(c *cli.Context) error {
 
 	// create gather options
 	opts := &gather.Options{
-		DB:                helpers.DB(c.GlobalString("db")),
-		Client:            helpers.Client(c.GlobalString("rpc")),
+		DB:                helpers.DB(c.String("db")),
+		Client:            helpers.Client(c.String("rpc")),
 		GetAncestors:      c.Bool("ancestors"),
 		ShouldSynchronize: c.Bool("sync"),
 	}

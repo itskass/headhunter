@@ -21,8 +21,12 @@ func main() {
 	app := cli.NewApp()
 	app.Name = "HEADHunter"
 	app.Version = "0.1"
-	app.Author = "kassius Barker"
-	app.Email = "itskass94@gmail.com"
+	app.Authors = []*cli.Author{
+		{
+			Name:  "kassius Barker",
+			Email: "itskass94@gmail.com",
+		},
+	}
 	app.Description =
 		`HEADHunter is a tool for downloading/syncing ethereum-like blockchains to MongoDB via a nodes rpc.
 		This software also provides some tools, quering blocks in the database.`
@@ -42,10 +46,10 @@ func main() {
 	}
 
 	// register commands
-	app.Commands = []cli.Command{
-		cmds.Gather,
-		cmds.Subscribe,
-		cmds.Docs,
+	app.Commands = []*cli.Command{
+		&cmds.Gather,
+		&cmds.Subscribe,
+		&cmds.Docs,
 	}
 
 	// run application
