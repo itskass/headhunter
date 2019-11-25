@@ -5,7 +5,7 @@ Example commands:
 - [Download specific Block by Hash](#download-specific-block-by-hash)
 - [Download a range of Blocks](#download-a-range-of-blocks)
 - [Synchronize to Block Number](#synchronize-to-block-number)
-- [Get Latest blocks](#get-latest-blocks)
+- [Get Latest Blocks](#get-latest-blocks)
 
 ## Download specific Block By Number:
 Gets only block number 50 and store it in your database:
@@ -32,7 +32,7 @@ hhunt --rpc <url> --db <url> gather --sync --number 100
 ```
 If your database is empty the above example would have downloaded 101 blocks (including the genesis block).
 
-## Get Latest blocks:
+## Get Latest Blocks:
 Subscribe listens for the latest blocks and downloads them:
 ```shell
 hhunt --rpc <url> --db <url> subscribe --connect
