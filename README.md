@@ -7,6 +7,6 @@
 ---
 
 Install using docker:
-`docker pull registry.gitlab.com/itskass/headhunter:0.1`
+`docker pull registry.gitlab.com/itskass/headhunter:latest`
 
 Documentation and examples also avaliable via https://gitlab.com/itskass/headhunter
